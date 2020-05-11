@@ -33,9 +33,8 @@ app.use(express.static(path.join(__dirname, "dist/instangular-client")));
 app.use("/", express.static(path.join(__dirname, "dist/instangular-client")));
 
 // our first Route
-app.get("/", (request, response, next) => {
-  response.send("<h1>Welcome Ironhacker. :)</h1>");
-});
+const router = require("./routes/auth-router");
+app.use("/", router);
 
 // Create port
 const port = process.env.PORT || 4000;
